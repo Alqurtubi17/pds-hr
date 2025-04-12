@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import requests, tempfile
 from plotly.subplots import make_subplots
 from sklearn.preprocessing import MinMaxScaler
 import joblib
@@ -12,9 +13,18 @@ st.set_page_config(page_title="HR Attrition Dashboard", layout="wide")
 # Load dataset
 df = pd.read_csv("https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/employee/employee_data.csv")
 
-# Load model
-model, _, selected_features = joblib.load("model_pipeline.pkl")
+# Unduh file dari URL
+url = "https://github.com/Alqurtubi17/pds-hr/raw/main/model_pipeline.pkl"
+response = requests.get(url)
+if response.status_code == 200:
+    with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+        tmp_file.write(response.content)
+        tmp_file_path = tmp_file.name
 
+    # Load model
+    model, _, selected_features = joblib.load(tmp_file_path)
+else:
+    raise Exception("Gagal mengunduh file model dari GitHub.")
 # Preprocessing
 df.dropna(inplace=True)
 df.drop(['EmployeeId', 'Over18', 'StandardHours', 'EmployeeCount'], axis=1, inplace=True)

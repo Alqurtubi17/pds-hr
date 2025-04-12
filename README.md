@@ -186,22 +186,22 @@ Hasil di atas menunjukkan bahwa terdapat missing values dalam dataset ini yakni 
 
 Setelah proses data understanding selesai dilakukan, langkah selanjutnya adalah eksplorasi data atau Exploratory Data Analysis (EDA). Tahapan ini bertujuan untuk memahami pola, hubungan, serta karakteristik dari setiap fitur dalam dataset, baik dari sisi distribusi masing-masing variabel (univariat) maupun hubungan antar variabel (multivariat). Dengan melakukan EDA, kita dapat mengidentifikasi potensi outlier, ketidakseimbangan kelas, dan variabel-variabel yang berpengaruh terhadap target prediksi, yaitu attrition.
 
-![Gambar 1. Distribusi Attrition](image.png)
+![Gambar 1. Distribusi Attrition](https://github.com/Alqurtubi17/pds-hr/blob/main/image.png?raw=true)
 Grafik distribusi attrition menunjukkan bahwa sebagian besar karyawan tidak mengalami attrition (bertahan di perusahaan), sedangkan hanya sebagian kecil (sekitar 15%) yang keluar dari perusahaan. Ketimpangan ini mencerminkan adanya ketidakseimbangan kelas yang signifikan dalam data, di mana jumlah karyawan yang bertahan jauh lebih banyak dibandingkan yang keluar. 
 
-![Gambar 2. Distribusi Attrition Berdasarkan Kategori](image-1.png)
+![Gambar 2. Distribusi Attrition Berdasarkan Kategori](https://github.com/Alqurtubi17/pds-hr/blob/main/image-1.png?raw=true)
 Visualisasi ini menggambarkan distribusi attrition (keluar atau tidaknya karyawan) berdasarkan berbagai variabel kategorik. Terlihat bahwa proporsi attrition cenderung lebih tinggi pada karyawan yang belum menikah (single), memiliki work-life balance rendah, tingkat kepuasan kerja dan lingkungan yang rendah, serta bekerja pada peran seperti Sales Representative dan Laboratory Technician. Hal ini menunjukkan bahwa kondisi kesejahteraan kerja dan stabilitas personal memengaruhi keputusan untuk bertahan di perusahaan. Selain itu, departemen seperti Research & Development dan Sales menunjukkan variasi signifikan dalam angka attrition antar job role.
 
-![Gambar 3. Korelasi](image-2.png)
+![Gambar 3. Korelasi](https://github.com/Alqurtubi17/pds-hr/blob/main/image-2.png?raw=true)
+Gambar di atas menunjukkan heatmap korelasi antar fitur numerik dalam dataset karyawan. Nilai korelasi ditunjukkan dalam skala -1 hingga 1, di mana warna merah menunjukkan korelasi positif kuat, dan biru menunjukkan korelasi negatif. Terlihat bahwa beberapa fitur memiliki korelasi kuat, seperti antara JobLevel dan MonthlyIncome (0.95), serta TotalWorkingYears dengan Age (0.68), yang masuk akal karena semakin lama seseorang bekerja, usia dan level jabatannya pun cenderung meningkat. Selain itu, YearsAtCompany, YearsInCurrentRole, YearsSinceLastPromotion, dan YearsWithCurrManager juga saling berkorelasi cukup tinggi, mengindikasikan hubungan erat antar durasi kerja dalam perusahaan. Di sisi lain, fitur Attrition tidak menunjukkan korelasi yang kuat secara linear dengan fitur numerik lainnya, yang menunjukkan bahwa faktor yang memengaruhi keputusan karyawan untuk keluar mungkin lebih kompleks dan tidak sepenuhnya dapat dijelaskan oleh variabel numerik saja.
 
-
-![Gambar 4. Distribusi Attrition Berdasarkan Variabel Numerik](image-3.png)
+![Gambar 4. Distribusi Attrition Berdasarkan Variabel Numerik](https://github.com/Alqurtubi17/pds-hr/blob/main/image-3.png?raw=true)
 Visualisasi ini menunjukkan distribusi variabel numerik berdasarkan status attrition. Karyawan yang mengalami attrition cenderung memiliki usia, pendapatan bulanan, total tahun bekerja, serta masa kerja di perusahaan yang lebih rendah dibandingkan mereka yang bertahan. Selain itu, mereka cenderung memiliki lebih banyak jumlah perusahaan sebelumnya dan lebih sedikit pengalaman dengan manajer saat ini. Ini mengindikasikan bahwa pengalaman kerja yang lebih lama dan pendapatan yang lebih tinggi berkorelasi negatif dengan kemungkinan attrition.
 
-![Gambar 5. Rasio Attrition per Job Role](image-4.png)
+![Gambar 5. Rasio Attrition per Job Role](https://github.com/Alqurtubi17/pds-hr/blob/main/image-4.png?raw=true)
 Grafik ini menampilkan rasio attrition tertinggi berada pada peran Sales Representative, diikuti oleh Laboratory Technician dan Human Resources. Job role yang memiliki tanggung jawab berat atau tekanan tinggi, namun tidak disertai dengan penghargaan atau pengembangan karier yang memadai, berkontribusi pada peningkatan risiko attrition. Sebaliknya, peran manajerial dan direktorat menunjukkan rasio attrition yang sangat rendah, kemungkinan besar karena stabilitas karier dan kompensasi yang lebih baik.
 
-![Gambar 6. Treemap: Job Involvement & Satisfaction per Department dan Job Role](<newplot (1).png>)
+![Gambar 6. Treemap: Job Involvement & Satisfaction per Department dan Job Role](https://github.com/Alqurtubi17/pds-hr/blob/main/newplot%20(1).png?raw=true)
 Treemap ini menunjukkan sebaran peran kerja dalam tiap departemen dengan ukuran yang merepresentasikan tingkat keterlibatan kerja dan kepuasan. Mayoritas karyawan berada di departemen Research & Development, dengan proporsi terbesar di peran Research Scientist dan Laboratory Technician. Di sisi lain, peran dalam Sales memiliki distribusi besar namun lebih rentan terhadap attrition berdasarkan visual sebelumnya. Ini menyiratkan pentingnya perbaikan pengalaman kerja di job role berisiko tinggi untuk menekan angka attrition secara menyeluruh.
 
 ### Data Preprocessing

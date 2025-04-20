@@ -37,8 +37,8 @@ df['Education'] = df['Education'].map(education_map)
 df['WorkLifeBalance'] = df['WorkLifeBalance'].map(worklife_map)
 df['JobSatisfaction'] = df['JobSatisfaction'].map(satisfaction_map)
 df['EnvironmentSatisfaction'] = df['EnvironmentSatisfaction'].map(satisfaction_map)
-df['MaritalStatus'] = df['MaritalStatus'].map({"Single": 0, "Married": 1, "Divorced": 2})
-df['OverTime'] = df['OverTime'].map({"No": 0, "Yes": 1})
+df['MaritalStatus'] = df['MaritalStatus'].map({0:"Single", 1:"Married", 2:"Divorced"})
+df['OverTime'] = df['OverTime'].map({0:"No", 1:"Yes"})
 
 # Sidebar navigation
 page = st.sidebar.selectbox("Pilih Halaman", ["Dashboard", "Prediction"])
